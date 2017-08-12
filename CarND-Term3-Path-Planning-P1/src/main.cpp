@@ -265,12 +265,8 @@ int main() {
 
 					if((check_car_s>car_s) && ((check_car_s-car_s)< 30)){
 
-						// Lower ref_vel to avoid collison
-						// ref_vel = 29.6; //MPH
 						too_close = true;
-//                        if(lane>0){
-//                            lane -= 1;
-//                        }
+
 						// check if car ahead of ego car in left lane is moving faster and car behind is at safe distance, make left lane change
 						if(left_lane >= 0 && left_lane <= 2){
 							bool safe_flag = true;
@@ -290,9 +286,9 @@ int main() {
 										}
 									}
 									if((check_car_s_local<car_s) && ((car_s-check_car_s_local)< 20)){
-//										if(check_speed_local > ref_vel){
+										//if(check_speed_local > ref_vel){
 											safe_flag = false;
-//										}
+										//}
 									}
 								}
 							}
@@ -328,9 +324,9 @@ int main() {
 										}
 									}
 									if((check_car_s_local<car_s) && ((car_s-check_car_s_local)< 20)){
-//										if(check_speed_local >ref_vel){
+										//if(check_speed_local >ref_vel){
 											safe_flag = false;
-//										}
+										//}
 									}
 								}
 							}
@@ -345,17 +341,12 @@ int main() {
 							}
 
 						}
-
-
-
-
-
 					}
 
 				}
 			}
 
-
+            // If car is too close to car in front, then slow down otherwise speed up with constant acceleration
 			if (too_close){
 				ref_vel -= 0.224; // 5 m/s^2
 			}
@@ -473,7 +464,7 @@ int main() {
 				next_y_vals.push_back(y_point);
 			}
 
-          	// TODO: define a path made up of (x,y) points that the car will visit sequentially every .02 seconds
+          	// define a path made up of (x,y) points that the car will visit sequentially every .02 seconds
 
 
 //            double dist_inc = 0.4;

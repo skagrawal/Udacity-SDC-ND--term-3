@@ -7,7 +7,7 @@ I have used the Term3 Simulator which contains the Path Planning Project from th
 ### Goals
 In this project goal was to safely navigate around a virtual highway with other traffic that is driving +-10 MPH of the 50 MPH speed limit. I was provided the car's localization and sensor fusion data, there was also a sparse map list of waypoints around the highway. The car should try to go as close as possible to the 50 MPH speed limit, which means passing slower traffic when possible (other cars will try to change lanes too). The car should avoid hitting other cars at all cost as well as driving inside of the marked road lanes at all times, unless going from one lane to another. The car should be able to make one complete loop around the 6946m highway. Since the car is trying to go 50 MPH, it should take a little over 5 minutes to complete 1 loop. Also the car should not experience total acceleration over 10 m/s^2 and jerk that is greater than 50 m/s^3.
 
-### Rubric points and description
+#### Rubric points and description
 ##### The car is able to drive at least 4.32 miles without incident
 The top right screen of the simulator shows the current/best miles driven without incident. Incidents include exceeding acceleration/jerk/speed, collision, and driving outside of the lanes. 
 Car is able to drive without incident.
@@ -20,13 +20,31 @@ Car is following max speed limit and not going beyond 50 MPH.
 The car does not exceed a total acceleration of 10 m/s^2 and a jerk of 10 m/s^3.
 
 ##### The Car does not have collisions.
-The car must not come into contact with any of the other cars on the road.
+The car does not come into contact with any of the other cars on the road.
 
 ##### The car stays in its lane, except for the time between changing lanes.
 The car doesn't spend more than a 3 second length out side the lane lanes during changing lanes, and every other time the car stays inside one of the 3 lanes on the right hand side of the road.
 
 ##### The car is able to change lanes
-The car is able to smoothly change lanes when it makes sense to do so, such as when behind a slower moving car and an adjacent lane is clear of other traffic.
+The car is able to smoothly change lanes when it makes sense to do so, such as when behind a slower moving car and an adjacent lane is clear of other traffic. I have use spline library for smooth paths.
+To change the lane I have followed these steps:
+1. Check if Left lane exist
+  1.1 Check if car next to the ego car in left lane is at safe distance(future) and moving faster than the speed of ego car.
+  1.2 Check if car just behind to the ego car in left lane is at safe distance(future).
+  1.3 If both 1.1 and 1.2 are true then speed up and change to left lane.
+
+2. Check if Right lane exist
+  2.1 Check if car next to the ego car in right lane is at safe distance(future) and moving faster than the speed of ego car.
+  2.2 Check if car just behind to the ego car in right lane is at safe distance(future) .
+  2.3 If both 2.1 and 2.2 are true then speed up and change to right lane.
+
+3. If point 1 and 2 are not true then stay in current lane.
+
+<Code line number 270-343>
+
+##### There is a reflection on how to generate paths.
+if previous state of the car is almost empty, use the car as a starting reference else use the previous points as starting reference. Then I add 3 anchor points each being 30 mts apart. Now I shift all points to car reference points or zero angle. Now I fit a spline with all of the above points. Then I devide the target distance that car need to cover into 50 points and using the spline I find all 50 pairs of x,y points. After that I convert these points back to global cordinate. After all of this I add all the points to the path to be followed. <Code line number 398-466>
+
 
 
 #### The map of the highway is in data/highway_map.txt
