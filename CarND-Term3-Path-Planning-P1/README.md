@@ -8,24 +8,24 @@ I have used the Term3 Simulator which contains the Path Planning Project from th
 In this project goal was to safely navigate around a virtual highway with other traffic that is driving +-10 MPH of the 50 MPH speed limit. I was provided the car's localization and sensor fusion data, there was also a sparse map list of waypoints around the highway. The car should try to go as close as possible to the 50 MPH speed limit, which means passing slower traffic when possible (other cars will try to change lanes too). The car should avoid hitting other cars at all cost as well as driving inside of the marked road lanes at all times, unless going from one lane to another. The car should be able to make one complete loop around the 6946m highway. Since the car is trying to go 50 MPH, it should take a little over 5 minutes to complete 1 loop. Also the car should not experience total acceleration over 10 m/s^2 and jerk that is greater than 50 m/s^3.
 
 ### Rubric points and description
-#####The car is able to drive at least 4.32 miles without incident
+##### The car is able to drive at least 4.32 miles without incident
 The top right screen of the simulator shows the current/best miles driven without incident. Incidents include exceeding acceleration/jerk/speed, collision, and driving outside of the lanes. 
 Car is able to drive without incident.
 
-#####The car drives according to the speed limit.
+##### The car drives according to the speed limit.
 The car doesn't drive faster than the speed limit. Also the car isn't driving much slower than speed limit unless obstructed by traffic.
 Car is following max speed limit and not going beyond 50 MPH.
 
-#####Max Acceleration and Jerk are not Exceeded.
+##### Max Acceleration and Jerk are not Exceeded.
 The car does not exceed a total acceleration of 10 m/s^2 and a jerk of 10 m/s^3.
 
-#####Car does not have collisions.
+##### The Car does not have collisions.
 The car must not come into contact with any of the other cars on the road.
 
-#####The car stays in its lane, except for the time between changing lanes.
+##### The car stays in its lane, except for the time between changing lanes.
 The car doesn't spend more than a 3 second length out side the lane lanes during changing lanes, and every other time the car stays inside one of the 3 lanes on the right hand side of the road.
 
-#####The car is able to change lanes
+##### The car is able to change lanes
 The car is able to smoothly change lanes when it makes sense to do so, such as when behind a slower moving car and an adjacent lane is clear of other traffic.
 
 
