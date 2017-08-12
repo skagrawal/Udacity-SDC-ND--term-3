@@ -30,12 +30,16 @@ The car is able to smoothly change lanes when it makes sense to do so, such as w
 To change the lane I have followed these steps:
 1. Check if Left lane exist
   1.1 Check if car next to the ego car in left lane is at safe distance(future) and moving faster than the speed of ego car.
+
   1.2 Check if car just behind to the ego car in left lane is at safe distance(future).
+  
   1.3 If both 1.1 and 1.2 are true then speed up and change to left lane.
 
 2. Check if Right lane exist
   2.1 Check if car next to the ego car in right lane is at safe distance(future) and moving faster than the speed of ego car.
+
   2.2 Check if car just behind to the ego car in right lane is at safe distance(future) .
+  
   2.3 If both 2.1 and 2.2 are true then speed up and change to right lane.
 
 3. If point 1 and 2 are not true then stay in current lane.
