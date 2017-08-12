@@ -9,8 +9,8 @@ In this project goal was to safely navigate around a virtual highway with other 
 
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=6-9dFCeMzAU
-" target="_blank"><img src="http://img.youtube.com/vi/6-9dFCeMzAU/10.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+" target="_blank"><img src="http://img.youtube.com/vi/6-9dFCeMzAU/0.jpg" 
+alt="Demo Link - YouTube" width="240" height="180" border="10" /></a>
 
 
 
