@@ -1,4 +1,4 @@
-# Install script for directory: /Users/shubhama/Documents/Udacity-SDC-Term3/CarND-Term3-Path-Planning-P1
+# Install script for directory: /Users/shubhama/Dropbox (Telenav)/Term3/CarND-Term3-Path-Planning-P1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/shubhama/Documents/Udacity-SDC-Term3/CarND-Term3-Path-Planning-P1/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/shubhama/Dropbox (Telenav)/Term3/CarND-Term3-Path-Planning-P1/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -266,6 +266,7 @@ int main() {
 					if((check_car_s>car_s) && ((check_car_s-car_s)< 30)){
 
 						too_close = true;
+                        if (too_close){ref_vel -= 0.224;}
 
 						// check if car ahead of ego car in left lane is moving faster and car behind is at safe distance, make left lane change
 						if(left_lane >= 0 && left_lane <= 2){

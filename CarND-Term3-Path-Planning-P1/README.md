@@ -7,6 +7,13 @@ I have used the Term3 Simulator which contains the Path Planning Project from th
 ### Goals
 In this project goal was to safely navigate around a virtual highway with other traffic that is driving +-10 MPH of the 50 MPH speed limit. I was provided the car's localization and sensor fusion data, there was also a sparse map list of waypoints around the highway. The car should try to go as close as possible to the 50 MPH speed limit, which means passing slower traffic when possible (other cars will try to change lanes too). The car should avoid hitting other cars at all cost as well as driving inside of the marked road lanes at all times, unless going from one lane to another. The car should be able to make one complete loop around the 6946m highway. Since the car is trying to go 50 MPH, it should take a little over 5 minutes to complete 1 loop. Also the car should not experience total acceleration over 10 m/s^2 and jerk that is greater than 50 m/s^3.
 
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=6-9dFCeMzAU
+" target="_blank"><img src="http://img.youtube.com/vi/6-9dFCeMzAU/10.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+
+
+
 #### Rubric points and description
 ##### The car is able to drive at least 4.32 miles without incident
 The top right screen of the simulator shows the current/best miles driven without incident. Incidents include exceeding acceleration/jerk/speed, collision, and driving outside of the lanes. 
@@ -51,7 +58,7 @@ To change the lane I have followed these steps:
 <Code line number 270-343>
 
 ##### There is a reflection on how to generate paths.
-if previous state of the car is almost empty, use the car as a starting reference else use the previous points as starting reference. Then I add 3 anchor points each being 30 mts apart. Now I shift all points to car reference points or zero angle. Now I fit a spline with all of the above points. Then I devide the target distance that car need to cover into 50 points and using the spline I find all 50 pairs of x,y points. After that I convert these points back to global cordinate. After all of this I add all the points to the path to be followed. <Code line number 398-466>
+if previous state of the car is almost empty, use the car as a starting reference else use the previous points as starting reference. Then I add 3 anchor points each being 30 mts apart. Now I shift all points to car reference points or zero angle. Now I fit a spline with all of the above points. Then I devide the target distance that car need to cover into 50 points and using the spline I find all 50 pairs of x,y points. After that I convert these points back to global coordinate. After all of this I add all the points to the path to be followed. <Code line number 398-466>
 
 
 
