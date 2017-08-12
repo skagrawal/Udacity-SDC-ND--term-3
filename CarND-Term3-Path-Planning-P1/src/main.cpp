@@ -160,14 +160,6 @@ vector<double> getXY(double s, double d, vector<double> maps_s, vector<double> m
 
 }
 
-
-//bool checkLane(int target_lane, string data{
-//	auto s = hasData(data);
-//	auto j = json::parse(s);
-//	return false;
-//
-//}
-
 int main() {
   uWS::Hub h;
 
@@ -544,83 +536,5 @@ int main() {
   }
   h.run();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
