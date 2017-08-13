@@ -11,23 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8c788ac-c493-42ca-b32c-785ad3962d29" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/path_planning.dir/src/main.cpp.o" afterPath="$PROJECT_DIR$/build/CMakeFiles/path_planning.dir/src/main.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/path_planning" afterPath="$PROJECT_DIR$/build/path_planning" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeCache.txt" afterPath="$PROJECT_DIR$/build/CMakeCache.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" afterPath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/path_planning.dir/CXX.includecache" afterPath="$PROJECT_DIR$/build/CMakeFiles/path_planning.dir/CXX.includecache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/path_planning.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/build/CMakeFiles/path_planning.dir/DependInfo.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/path_planning.dir/build.make" afterPath="$PROJECT_DIR$/build/CMakeFiles/path_planning.dir/build.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/path_planning.dir/depend.internal" afterPath="$PROJECT_DIR$/build/CMakeFiles/path_planning.dir/depend.internal" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/Makefile" afterPath="$PROJECT_DIR$/build/Makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/cmake_install.cmake" afterPath="$PROJECT_DIR$/build/cmake_install.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
-    </list>
+    <list default="true" id="c8c788ac-c493-42ca-b32c-785ad3962d29" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -179,12 +163,12 @@
       <option name="presentableId" value="Default" />
       <updated>1501979396895</updated>
       <workItem from="1501979398090" duration="19133000" />
-      <workItem from="1502566773861" duration="2003000" />
+      <workItem from="1502566773861" duration="2305000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21136000" />
+    <option name="totallyTimeSpent" value="21438000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="27" width="1420" height="852" extended-state="0" />
