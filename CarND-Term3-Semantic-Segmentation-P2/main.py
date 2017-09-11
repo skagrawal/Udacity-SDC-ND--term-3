@@ -27,6 +27,7 @@ def load_vgg(sess, vgg_path):
 
     #   Use tf.saved_model.loader.load to load the model and weights
     vgg_tag = 'vgg16'
+
     vgg_input_tensor_name = 'image_input:0'
     vgg_keep_prob_tensor_name = 'keep_prob:0'
     vgg_layer3_out_tensor_name = 'layer3_out:0'
@@ -35,12 +36,12 @@ def load_vgg(sess, vgg_path):
 
     tf.saved_model.loader.load(sess, [vgg_tag], vgg_path)
 
-    graph = tf.get_default_graph()
-    image_input = graph.get_tensor_by_name(vgg_input_tensor_name)
-    keep_prob = graph.get_tensor_by_name(vgg_keep_prob_tensor_name)
-    layer3_out = graph.get_tensor_by_name(vgg_layer3_out_tensor_name)
-    layer4_out = graph.get_tensor_by_name(vgg_layer4_out_tensor_name)
-    layer7_out = graph.get_tensor_by_name(vgg_layer7_out_tensor_name)
+    # graph = tf.get_default_graph()
+    image_input = sess.graph.get_tensor_by_name(vgg_input_tensor_name)
+    keep_prob = sess.graph.get_tensor_by_name(vgg_keep_prob_tensor_name)
+    layer3_out = sess.graph.get_tensor_by_name(vgg_layer3_out_tensor_name)
+    layer4_out = sess.graph.get_tensor_by_name(vgg_layer4_out_tensor_name)
+    layer7_out = sess.graph.get_tensor_by_name(vgg_layer7_out_tensor_name)
 
     return image_input, keep_prob, layer3_out, layer4_out, layer7_out
 tests.test_load_vgg(load_vgg, tf)
@@ -56,27 +57,28 @@ def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
     :return: The Tensor for the last layer of output
     """
     # 1x1 Convolution
+    # kernel_regularizer = tf.contrib.layers.l2_regularizer(scale=0.001)
     layer_7_1x1 = tf.layers.conv2d(vgg_layer7_out, num_classes, 1, strides=(1, 1), padding='same',
-                              kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=0.001))
+                                   kernel_initializer=tf.truncated_normal_initializer(stddev=0.01))
     layer_4_1x1 = tf.layers.conv2d(vgg_layer4_out, num_classes, 1, strides=(1, 1), padding='same',
-                              kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=0.001))
+                                   kernel_initializer=tf.truncated_normal_initializer(stddev=0.01))
     layer_3_1x1 = tf.layers.conv2d(vgg_layer3_out, num_classes, 1, strides=(1, 1), padding='same',
-                              kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=0.001))
+                                   kernel_initializer=tf.truncated_normal_initializer(stddev=0.01))
 
     #  transposed convolutions
     output_1 = tf.layers.conv2d_transpose(layer_7_1x1,num_classes,4,strides=(2, 2),padding='same',
-                                        kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=0.001))
+                                          kernel_initializer=tf.truncated_normal_initializer(stddev=0.01))
     # Skip Connections
     skip_1 = tf.add(output_1, layer_4_1x1)
     #  transposed convolutions
     output_2 = tf.layers.conv2d_transpose(output_1, num_classes, 4, strides=(2, 2), padding='same',
-                                        kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=0.001))
+                                          kernel_initializer=tf.truncated_normal_initializer(stddev=0.01))
     # Skip Connections
     skip_2 = tf.add(output_2, layer_3_1x1)
 
     #  transposed convolutions
     output_3 = tf.layers.conv2d_transpose(skip_2, num_classes, 16, strides=(8, 8), padding='same',
-                                          kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=0.001))
+                                          kernel_initializer=tf.truncated_normal_initializer(stddev=0.01))
     # Skip Connections
     # skip_3 = tf.add(output_3, vgg_layer3_out)
 
@@ -125,8 +127,8 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
     for epoch in range(epochs):
         for images, labels in get_batches_fn(batch_size):
             _, loss = sess.run([train_op, cross_entropy_loss],
-                               feed_dict={input_image: images, correct_label: labels, keep_prob: 0.75,
-                                          learning_rate: 0.0001})
+                               feed_dict={input_image: images, correct_label: labels, keep_prob: 0.50,
+                                          learning_rate: 0.001})
             if steps % 10 == 0:
                 print("Epoch {}/{}...".format(epoch + 1, epochs),
                       "Training Loss: {:.4f}...".format(loss))
@@ -143,10 +145,11 @@ def run():
     tests.test_for_kitti_dataset(data_dir)
 
     # training hyper parameters
-    epochs = 15
-    batch_size = 16
-    lr = 0.0001
+    epochs = 30
+    batch_size = 20
+    lr = 0.001
     learning_rate = tf.constant(lr)
+    # Epoch 30 / 30...Training Loss: 0.0509...
 
     # Download pretrained vgg model
     helper.maybe_download_pretrained_vgg(data_dir)
