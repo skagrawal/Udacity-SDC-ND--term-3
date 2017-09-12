@@ -71,7 +71,7 @@ def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
     # Skip Connections
     skip_1 = tf.add(output_1, layer_4_1x1)
     #  transposed convolutions
-    output_2 = tf.layers.conv2d_transpose(output_1, num_classes, 4, strides=(2, 2), padding='same',
+    output_2 = tf.layers.conv2d_transpose(skip_1, num_classes, 4, strides=(2, 2), padding='same',
                                           kernel_initializer=tf.truncated_normal_initializer(stddev=0.01))
     # Skip Connections
     skip_2 = tf.add(output_2, layer_3_1x1)
@@ -128,7 +128,7 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
         for images, labels in get_batches_fn(batch_size):
             _, loss = sess.run([train_op, cross_entropy_loss],
                                feed_dict={input_image: images, correct_label: labels, keep_prob: 0.50,
-                                          learning_rate: 0.001})
+                                          learning_rate: 0.0001})
             if steps % 10 == 0:
                 print("Epoch {}/{}...".format(epoch + 1, epochs),
                       "Training Loss: {:.4f}...".format(loss))
@@ -145,9 +145,9 @@ def run():
     tests.test_for_kitti_dataset(data_dir)
 
     # training hyper parameters
-    epochs = 30
-    batch_size = 20
-    lr = 0.001
+    epochs = 15 #30
+    batch_size = 4 #20
+    lr = 0.0001
     learning_rate = tf.constant(lr)
     # Epoch 30 / 30...Training Loss: 0.0509...
 

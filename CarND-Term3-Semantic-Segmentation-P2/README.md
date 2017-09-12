@@ -6,9 +6,9 @@ In this project, I trained a Fully Convolutional Network (FCN) to label the pixe
 During training, I experimented with multiple epochs, batch sizes, learning rates and dropout rates. Final values of hyperparameters are:
 
 - Dropout probability: 0.50
-- Epochs: 30
-- Batch Size: 20
-- Learning rate: 0.001
+- Epochs: 15
+- Batch Size: 4
+- Learning rate: 0.0001
 
 ### Setup
 ##### Frameworks and Packages
