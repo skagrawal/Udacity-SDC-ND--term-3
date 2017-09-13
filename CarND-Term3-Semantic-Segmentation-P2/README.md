@@ -34,10 +34,11 @@ python main.py
  - Newest inference images are in `runs` folder
  - Some sample outputs
  
- ![Alt text](/runs/1505240322.712861/um_000000.png?raw=true )
- ![Alt text](/runs/1505240322.712861/um_000008.png?raw=true )
- ![Alt text](/runs/1505240322.712861/um_000015.png?raw=true )
-
+ ![1](./runs/1505240322.712861/um_000000.png?raw=true )
+ ![2](./runs/1505240322.712861/umm_000051.png?raw=true )
+ ![3](./runs/1505240322.712861/umm_000086.png?raw=true )
+![4](./runs/1505240322.712861/uu_000093.png?raw=true )
+![5](./runs/1505240322.712861/umm_000032.png?raw=true )
 ##### References
 - [Fully Convolutional Networks for Semantic Segmentation](https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf)
 
